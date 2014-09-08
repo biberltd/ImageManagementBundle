@@ -13,7 +13,7 @@
  * @description Model / Entity class.
  *
  */
-namespace BiberLtd\Core\Bundles\ImageManagementBundle\Entity;
+namespace BiberLtd\Bundle\ImageManagementBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use BiberLtd\Core\CoreEntity;
 
@@ -46,7 +46,7 @@ class ImageCropLocalization extends CoreEntity
     /**
      * @ORM\Id
      * @ORM\ManyToOne(
-     *     targetEntity="BiberLtd\Core\Bundles\ImageManagementBundle\Entity\ImageCrop",
+     *     targetEntity="BiberLtd\Bundle\ImageManagementBundle\Entity\ImageCrop",
      *     inversedBy="localizations"
      * )
      * @ORM\JoinColumn(name="crop", referencedColumnName="id", nullable=false, onDelete="CASCADE")
@@ -55,7 +55,7 @@ class ImageCropLocalization extends CoreEntity
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\MultiLanguageSupportBundle\Entity\Language")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\MultiLanguageSupportBundle\Entity\Language")
      * @ORM\JoinColumn(name="language", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $language;

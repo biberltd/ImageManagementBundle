@@ -1,11 +1,11 @@
 <?php
 
-namespace BiberLtd\Core\Bundles\ImageManagementBundle;
+namespace BiberLtd\Bundle\ImageManagementBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class BiberLtdCoreBundlesImageManagementBundle extends Bundle
+class BiberLtdBundleImageManagementBundle extends Bundle
 {
 
 }
