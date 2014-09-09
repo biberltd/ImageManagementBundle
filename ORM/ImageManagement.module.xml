@@ -72,7 +72,7 @@
     </association>
     <comment caption="ImageManagementBundle Pricing" description="image_crop: 185 TL&#10;image_crop_localization: 150 TL&#10;&#10;toplam: 335 TL" uuid="f7652222-51e7-4363-b07d-b71dd05f1e5d"/>
     <orm-attributes>
-      <attribute name="namespace">BiberLtd\Core\Bundles\ImageManagementBundle\Entity</attribute>
+      <attribute name="namespace">BiberLtd\Bundle\ImageManagementBundle\Entity</attribute>
       <attribute name="filename-format">entity-name-only</attribute>
       <attribute name="file-suffix">without-suffix</attribute>
     </orm-attributes>

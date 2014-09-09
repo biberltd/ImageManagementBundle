@@ -1,7 +1,7 @@
 <?php
 /**
  * @name        ImageCrop
- * @package		BiberLtd\Core\ImageManagementBundle
+ * @package		BiberLtd\Bundle\CoreBundle\ImageManagementBundle
  *
  * @author		Murat Ünal
  * @version     1.0.2
@@ -13,9 +13,9 @@
  * @description Model / Entity class.
  *
  */
-namespace BiberLtd\Core\Bundles\ImageManagementBundle\Entity;
+namespace BiberLtd\Bundle\ImageManagementBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
-use BiberLtd\Core\CoreLocalizableEntity;
+use BiberLtd\Bundle\CoreBundle\CoreLocalizableEntity;
 
 /** 
  * @ORM\Entity
@@ -69,14 +69,14 @@ class ImageCrop extends CoreLocalizableEntity
 
     /** 
      * @ORM\OneToMany(
-     *     targetEntity="BiberLtd\Core\Bundles\ImageManagementBundle\Entity\ImageCropLocalization",
+     *     targetEntity="BiberLtd\Bundle\ImageManagementBundle\Entity\ImageCropLocalization",
      *     mappedBy="image_crop"
      * )
      */
     protected $localizations;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\SiteManagementBundle\Entity\Site")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\SiteManagementBundle\Entity\Site")
      * @ORM\JoinColumn(name="site", referencedColumnName="id", onDelete="CASCADE")
      */
     private $site;
