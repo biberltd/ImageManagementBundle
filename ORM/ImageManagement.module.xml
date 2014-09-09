@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<skipper version="3.0.0.1104" mvc="Symfony2" orm="Doctrine2">
+  <module name="ImageManagementBundle" import-format="Doctrine2Php" import-path="../Entity" uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb">
+    <entity name="ImageCrop" description="Stores definitions of image crops." uuid="137d8a9e-8c2e-426f-8b57-e555a062c844">
+      <field name="id" description="System given id." type="integer" size="10" required="true" unique="true" primary="true" auto-increment="true" uuid="101e4533-51c6-4543-a044-7841c8d6557d"/>
+      <field name="respect_ratio" description="Respect ratio? y:yes; n:no" type="string" size="1" default="y" required="true" uuid="977ae08a-e6ae-4acf-bbb9-5144c68964a6"/>
+      <field name="prefix" description="File name prefix to be added to the file." type="string" size="55" uuid="de33ab0e-56af-4e06-b3a3-33d65ab5fd56"/>
+      <field name="postfix" description="File name post fix to be added to the file." type="string" size="55" uuid="401e4213-4e4e-4967-87d2-f3429fcacc72"/>
+      <field name="height" description="Crop height." type="integer" size="5" required="true" uuid="3ecd0a8c-656f-47ef-8130-62e76c35c9d2"/>
+      <field name="width" description="Crop width." type="integer" size="5" required="true" uuid="1a3a222e-8587-43bb-936f-5aaada125e8d"/>
+      <field name="quality" description="Crop image quality." type="integer" size="3" default="100" required="true" uuid="15ca11f7-e9bf-4267-a72a-20bd90882d90"/>
+      <field name="site" description="Associated site if crop is applied to a specific site." type="integer" size="10" uuid="bbbc1227-5ca6-44a6-8a28-4432fa4b0398"/>
+      <index name="idx_u_image_cro&#x131;p_id">
+        <index-field name="id"/>
+      </index>
+      <index name="idx_n_crop_dimensions">
+        <index-field name="height"/>
+        <index-field name="width"/>
+      </index>
+      <orm-attributes>
+        <attribute name="options">
+          <attribute name="charset">utf8</attribute>
+          <attribute name="collate">utf8_turkish_ci</attribute>
+          <attribute name="engine">innodb</attribute>
+        </attribute>
+        <attribute name="table">image_crop</attribute>
+        <attribute name="export-file-name">ImageCrop.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="ImageCrop" to="Site" caption="idx_f_image_crop_site" inverse-alias="site" uuid="b546ab2e-8211-4cb1-9020-3ba08340e700">
+      <association-field from="site" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <entity name="ImageCropLocalization" description="Image crop definitions' localized values are stored here." uuid="84c561dc-48e3-427b-a4fa-449ce765afd5">
+      <field name="crop" description="Associated image crop definition." type="integer" size="10" required="true" primary="true" uuid="1c6fb79a-f9ef-407d-8b7e-b8d7e34add8d"/>
+      <field name="language" description="Localization language." type="integer" size="5" required="true" primary="true" uuid="af45f1ca-c77d-4c76-ae71-3c02bbe5314d"/>
+      <field name="name" description="Localized crop name." type="string" size="155" required="true" uuid="0c17e02e-e31f-4bba-8b10-99e51952ff36"/>
+      <field name="url_key" description="Localized url key of crop folder." type="string" size="255" required="true" uuid="3822eae4-bb71-4c19-b08b-cd707558ae8b"/>
+      <field name="description" description="Localized crop description." type="string" size="255" uuid="83f1d068-0958-46f1-b028-1759a2af5745"/>
+      <index name="idx_u_image_crop_localization" unique="true">
+        <index-field name="crop"/>
+        <index-field name="language"/>
+      </index>
+      <index name="idx_u_image_crop_localization_url_key">
+        <index-field name="crop"/>
+        <index-field name="language"/>
+        <index-field name="url_key"/>
+      </index>
+      <orm-attributes>
+        <attribute name="options">
+          <attribute name="charset">utf8</attribute>
+          <attribute name="collate">utf8_turkish_ci</attribute>
+          <attribute name="engine">innodb</attribute>
+        </attribute>
+        <attribute name="table">image_crop_localization</attribute>
+        <attribute name="export-file-name">ImageCropLocalization.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="ImageCropLocalization" to="ImageCrop" caption="idx_f_image_crop_localization_url_key" owner-alias="localizations" inverse-alias="image_crop" uuid="11f14eb8-14e8-4b61-ba12-07239a04315b">
+      <association-field from="crop" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="ImageCropLocalization" to="Language" caption="idx_f_image_crop_localization_url_key" inverse-alias="language" uuid="eaa1b9d0-b9a0-4caf-a7a9-a48c87141fdb">
+      <association-field from="language" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <comment caption="ImageManagementBundle Pricing" description="image_crop: 185 TL&#10;image_crop_localization: 150 TL&#10;&#10;toplam: 335 TL" uuid="f7652222-51e7-4363-b07d-b71dd05f1e5d"/>
+    <orm-attributes>
+      <attribute name="namespace">BiberLtd\Core\Bundles\ImageManagementBundle\Entity</attribute>
+      <attribute name="filename-format">entity-name-only</attribute>
+      <attribute name="file-suffix">without-suffix</attribute>
+    </orm-attributes>
+  </module>
+  <visual-data>
+    <entity uuid="137d8a9e-8c2e-426f-8b57-e555a062c844" bg-color="4294967295" hdr-color="4292006610" position-x="200" position-y="50" size-x="0" size-x2="122" size-y="0" size-y2="129"/>
+    <module uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb" bg-color="4293779236" size-x="0" size-x2="600" size-y="0" size-y2="200"/>
+    <entity uuid="84c561dc-48e3-427b-a4fa-449ce765afd5" bg-color="4294967295" hdr-color="4292006610" position-x="400" position-y="50" size-x="0" size-x2="123" size-y="0" size-y2="87"/>
+    <comment uuid="f7652222-51e7-4363-b07d-b71dd05f1e5d" bg-color="4294941056" position-x="2" position-y="18" size-x="0" size-x2="160" size-y="0" size-y2="68" txt-color="4278190080"/>
+  </visual-data>
+</skipper>
