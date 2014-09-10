@@ -1,5 +1,5 @@
 {
-    "name": "biberltd/imagemanagementbundle",
+    "name": "biberltd/image-management-bundle",
     "type": "symfony-bundle",
     "description": "",
     "keywords": [],
@@ -17,12 +17,12 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2"
+        "biberltd/core-bundle" : "self.version"
     },
     "autoload": {
-        "psr-0": { "BiberLtd\\ImageManagementBundle": "" }
+        "psr-0": { "BiberLtd\\Bundle\\ImageManagementBundle": "" }
 
     },
     "minimum-stability": "dev",
-    "target-dir": "BiberLtd/ImageManagementBundle"
+    "target-dir": "BiberLtd/Bundle/ImageManagementBundle"
 }
