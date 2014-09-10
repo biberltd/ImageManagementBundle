@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "biberltd/core-bundle" : "self.version"
+        "biberltd/core-bundle" : "~3.1"
     },
     "autoload": {
         "psr-0": { "BiberLtd\\Bundle\\ImageManagementBundle": "" }
