@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<skipper version="3.0.0.1104" mvc="Symfony2" orm="Doctrine2">
-  <module name="ImageManagementBundle" import-format="Doctrine2Php" import-path="../Entity" uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb">
-    <entity name="ImageCrop" description="Stores definitions of image crops." uuid="137d8a9e-8c2e-426f-8b57-e555a062c844">
+<skipper version="3.2.6.1309" mvc="Symfony2" orm="Doctrine2">
+  <module name="\ImageManagementBundle" local-name="ImageManagementBundle" namespace="\" uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb">
+    <entity name="\ImageCrop" local-name="ImageCrop" namespace="\" description="Stores definitions of image crops." uuid="137d8a9e-8c2e-426f-8b57-e555a062c844">
       <field name="id" description="System given id." type="integer" size="10" required="true" unique="true" primary="true" auto-increment="true" uuid="101e4533-51c6-4543-a044-7841c8d6557d"/>
       <field name="respect_ratio" description="Respect ratio? y:yes; n:no" type="string" size="1" default="y" required="true" uuid="977ae08a-e6ae-4acf-bbb9-5144c68964a6"/>
       <field name="prefix" description="File name prefix to be added to the file." type="string" size="55" uuid="de33ab0e-56af-4e06-b3a3-33d65ab5fd56"/>
@@ -27,13 +27,13 @@
         <attribute name="export-file-name">ImageCrop.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="ImageCrop" to="Site" caption="idx_f_image_crop_site" inverse-alias="site" uuid="b546ab2e-8211-4cb1-9020-3ba08340e700">
+    <association from="\ImageCrop" to="\BiberLtd\Bundle\SiteManagementBundle\Entity\Site" caption="idxFSiteOfImageCrop" inverse-alias="site" many-owner="true" many-inverse="false" uuid="b546ab2e-8211-4cb1-9020-3ba08340e700">
       <association-field from="site" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
       </orm-attributes>
     </association>
-    <entity name="ImageCropLocalization" description="Image crop definitions' localized values are stored here." uuid="84c561dc-48e3-427b-a4fa-449ce765afd5">
+    <entity name="\ImageCropLocalization" local-name="ImageCropLocalization" namespace="\" description="Image crop definitions' localized values are stored here." uuid="84c561dc-48e3-427b-a4fa-449ce765afd5">
       <field name="crop" description="Associated image crop definition." type="integer" size="10" required="true" primary="true" uuid="1c6fb79a-f9ef-407d-8b7e-b8d7e34add8d"/>
       <field name="language" description="Localization language." type="integer" size="5" required="true" primary="true" uuid="af45f1ca-c77d-4c76-ae71-3c02bbe5314d"/>
       <field name="name" description="Localized crop name." type="string" size="155" required="true" uuid="0c17e02e-e31f-4bba-8b10-99e51952ff36"/>
@@ -58,13 +58,13 @@
         <attribute name="export-file-name">ImageCropLocalization.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="ImageCropLocalization" to="ImageCrop" caption="idx_f_image_crop_localization_url_key" owner-alias="localizations" inverse-alias="image_crop" uuid="11f14eb8-14e8-4b61-ba12-07239a04315b">
+    <association from="\ImageCropLocalization" to="\ImageCrop" caption="idxFCropOfImageCropLocalization" owner-alias="" inverse-alias="image_crop" description="" many-owner="true" many-inverse="false" parent-required="true" uuid="11f14eb8-14e8-4b61-ba12-07239a04315b">
       <association-field from="crop" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
       </orm-attributes>
     </association>
-    <association from="ImageCropLocalization" to="Language" caption="idx_f_image_crop_localization_url_key" inverse-alias="language" uuid="eaa1b9d0-b9a0-4caf-a7a9-a48c87141fdb">
+    <association from="\ImageCropLocalization" to="\BiberLtd\Bundle\MultiLanguageSupportBundle\Entity\Language" caption="idxFLanguageOfImageCropLocalization" inverse-alias="language" many-owner="true" many-inverse="false" parent-required="true" uuid="eaa1b9d0-b9a0-4caf-a7a9-a48c87141fdb">
       <association-field from="language" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -78,9 +78,9 @@
     </orm-attributes>
   </module>
   <visual-data>
-    <entity uuid="137d8a9e-8c2e-426f-8b57-e555a062c844" bg-color="4294967295" hdr-color="4292006610" position-x="200" position-y="50" size-x="0" size-x2="122" size-y="0" size-y2="129"/>
-    <module uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb" bg-color="4293779236" size-x="0" size-x2="600" size-y="0" size-y2="200"/>
-    <entity uuid="84c561dc-48e3-427b-a4fa-449ce765afd5" bg-color="4294967295" hdr-color="4292006610" position-x="400" position-y="50" size-x="0" size-x2="123" size-y="0" size-y2="87"/>
     <comment uuid="f7652222-51e7-4363-b07d-b71dd05f1e5d" bg-color="4294941056" position-x="2" position-y="18" size-x="0" size-x2="160" size-y="0" size-y2="68" txt-color="4278190080"/>
+    <entity uuid="137d8a9e-8c2e-426f-8b57-e555a062c844" bg-color="4294967295" hdr-color="4292006610" position-x="156" position-y="94" size-x="0" size-x2="117" size-y="0" size-y2="129"/>
+    <entity uuid="84c561dc-48e3-427b-a4fa-449ce765afd5" bg-color="4294967295" hdr-color="4292006610" position-x="450" position-y="23" size-x="0" size-x2="119" size-y="0" size-y2="87"/>
+    <module uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb" bg-color="4293779236" size-x="0" size-x2="643" size-y="0" size-y2="299"/>
   </visual-data>
 </skipper>

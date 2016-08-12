@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<skipper version="3.2.6.1309" mvc="Symfony2" orm="Doctrine2" name="ImageManagementBundle" uuid="983cc521-7104-4093-998a-99d2b38931ea">
+  <external-module storage-path="../../site-management-bundle/ORM/SiteManagement.module.xml"/>
+  <external-module storage-path="../../multilanguage-support-bundle/ORM/MultiLanguageSupport.module.xml"/>
+  <external-module storage-path="ImageManagement.module.xml"/>
+  <visual-data>
+    <association uuid="11f14eb8-14e8-4b61-ba12-07239a04315b" color="#969696"/>
+    <association uuid="45c125cd-0ba3-4a9c-973e-92bbcfb91a59" color="#969696"/>
+    <association uuid="4a21a97e-810e-4e2d-a330-69d23cf801c7" color="#969696"/>
+    <association uuid="691cd89a-3534-4a4c-bf70-544fa15a4c35" color="#969696"/>
+    <association uuid="71f15a54-6bc9-4510-84b1-2b2817781440" color="#969696"/>
+    <association uuid="b546ab2e-8211-4cb1-9020-3ba08340e700" color="#969696"/>
+    <association uuid="dcbf1caf-6474-4dfe-90be-7b58aa71c5c7" color="#969696"/>
+    <association uuid="eaa1b9d0-b9a0-4caf-a7a9-a48c87141fdb" color="#969696"/>
+    <module uuid="264804cf-5ddd-4089-aaa2-d7c0f129a5ed" position-x="927" position-y="119"/>
+    <module uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb" position-x="77" position-y="61"/>
+    <module uuid="860bb986-ef71-4cef-9da2-f560e58c2569" position-x="347" position-y="561"/>
+    <project uuid="983cc521-7104-4093-998a-99d2b38931ea" size-x="0" size-x2="1941" size-y="0" size-y2="1164"/>
+  </visual-data>
+</skipper>
