@@ -10,10 +10,10 @@
       <field name="width" description="Crop width." type="integer" size="5" required="true" uuid="1a3a222e-8587-43bb-936f-5aaada125e8d"/>
       <field name="quality" description="Crop image quality." type="integer" size="3" default="100" required="true" uuid="15ca11f7-e9bf-4267-a72a-20bd90882d90"/>
       <field name="site" description="Associated site if crop is applied to a specific site." type="integer" size="10" uuid="bbbc1227-5ca6-44a6-8a28-4432fa4b0398"/>
-      <index name="idx_u_image_cro&#x131;p_id">
+      <index name="idxNImageCro&#x131;pId">
         <index-field name="id"/>
       </index>
-      <index name="idx_n_crop_dimensions">
+      <index name="idxNCropDimensions">
         <index-field name="height"/>
         <index-field name="width"/>
       </index>
@@ -39,11 +39,11 @@
       <field name="name" description="Localized crop name." type="string" size="155" required="true" uuid="0c17e02e-e31f-4bba-8b10-99e51952ff36"/>
       <field name="url_key" description="Localized url key of crop folder." type="string" size="255" required="true" uuid="3822eae4-bb71-4c19-b08b-cd707558ae8b"/>
       <field name="description" description="Localized crop description." type="string" size="255" uuid="83f1d068-0958-46f1-b028-1759a2af5745"/>
-      <index name="idx_u_image_crop_localization" unique="true">
+      <index name="idxUImageCropLocalization" unique="true">
         <index-field name="crop"/>
         <index-field name="language"/>
       </index>
-      <index name="idx_u_image_crop_localization_url_key">
+      <index name="idxNImageCropLocalizationUrlKey">
         <index-field name="crop"/>
         <index-field name="language"/>
         <index-field name="url_key"/>
@@ -58,7 +58,7 @@
         <attribute name="export-file-name">ImageCropLocalization.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="\ImageCropLocalization" to="\ImageCrop" caption="idxFCropOfImageCropLocalization" owner-alias="" inverse-alias="image_crop" description="" many-owner="true" many-inverse="false" parent-required="true" uuid="11f14eb8-14e8-4b61-ba12-07239a04315b">
+    <association from="\ImageCropLocalization" to="\ImageCrop" caption="idxFCropOfImageCropLocalization" owner-alias="" inverse-alias="crop" description="" many-owner="true" many-inverse="false" parent-required="true" uuid="11f14eb8-14e8-4b61-ba12-07239a04315b">
       <association-field from="crop" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -79,8 +79,8 @@
   </module>
   <visual-data>
     <comment uuid="f7652222-51e7-4363-b07d-b71dd05f1e5d" bg-color="4294941056" position-x="2" position-y="18" size-x="0" size-x2="160" size-y="0" size-y2="68" txt-color="4278190080"/>
-    <entity uuid="137d8a9e-8c2e-426f-8b57-e555a062c844" bg-color="4294967295" hdr-color="4292006610" position-x="156" position-y="94" size-x="0" size-x2="117" size-y="0" size-y2="129"/>
-    <entity uuid="84c561dc-48e3-427b-a4fa-449ce765afd5" bg-color="4294967295" hdr-color="4292006610" position-x="450" position-y="23" size-x="0" size-x2="119" size-y="0" size-y2="87"/>
+    <entity uuid="137d8a9e-8c2e-426f-8b57-e555a062c844" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="156" position-y="94" size-x="0" size-x2="117" size-y="0" size-y2="129"/>
+    <entity uuid="84c561dc-48e3-427b-a4fa-449ce765afd5" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="450" position-y="23" size-x="0" size-x2="119" size-y="0" size-y2="87"/>
     <module uuid="58c9ba49-3941-49b4-808d-34d1f631e3bb" bg-color="4293779236" size-x="0" size-x2="643" size-y="0" size-y2="299"/>
   </visual-data>
 </skipper>
